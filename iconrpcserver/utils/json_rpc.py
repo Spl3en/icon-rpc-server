@@ -78,12 +78,12 @@ class CustomAiohttpClient(AsyncClient):
         return None
 
 
-async def redirect_request_to_rs(protocal, message, rs_target, version=ApiVersion.v3.name, channel=""):
+async def redirect_request_to_rs(protocol, message, rs_target, version=ApiVersion.v3.name, channel=""):
     method_name = "icx_sendTransaction"
 
     # TODO have to support multichannel
-    # rs_url = f"{protocal}://{rs_target}/api/{version}/{channel}"
-    rs_url = f"{protocal}://{rs_target}/api/{version}"
+    # rs_url = f"{protocol}://{rs_target}/api/{version}/{channel}"
+    rs_url = f"{protocol}://{rs_target}/api/{version}"
     Logger.debug(f'rs_url: {rs_url}')
 
     async with aiohttp.ClientSession() as session:
